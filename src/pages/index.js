@@ -6,7 +6,7 @@ export default function Home() {
   // In your React component
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api/data");
+      const response = await fetch("/api/data-psql");
       const data = await response.json();
       setData(data);
     }
