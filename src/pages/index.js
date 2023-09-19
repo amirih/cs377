@@ -111,11 +111,11 @@ export default function Home() {
             />
           </div>
           <Fieldset legend="Tables:">
-            <p className="m-0">
+            <div className="m-0">
               {tables.map((table) => (
                 <div>{table}</div>
               ))}
-            </p>
+            </div>
           </Fieldset>
           <div>
             {data && (
