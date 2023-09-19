@@ -83,7 +83,7 @@ export default function Home() {
           <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
             <div className="flex lg:align-items-center flex-column lg:flex-row">
               <div className="text-3xl font-medium text-900 mr-0 lg:mr-4 mb-4 lg:mb-0">
-                CS 377 Emory Un
+                CS 377 Emory Uni
               </div>
               <TabMenu
                 model={items}
