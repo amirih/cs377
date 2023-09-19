@@ -40,19 +40,18 @@ export default function Home() {
       }
       setColumns(columns);
       setError("");
-      const tables = [];
-      for (const key in data.tables) {
-        tables.push(data.tables[key].tablename);
-      }
-      setTables(tables);
     }
     if (data.error) {
-      setTables([]);
       setError(data.error);
       setData([]);
       setColumns([]);
       return;
     }
+    const tables = [];
+    for (const key in data?.tables) {
+      tables.push(data?.tables[key]?.tablename);
+    }
+    setTables(tables);
 
     setData(data.data);
   }
