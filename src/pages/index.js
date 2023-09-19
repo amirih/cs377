@@ -108,7 +108,7 @@ export default function Home() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               rows={20}
-              cols={100}
+              cols={30}
             />
           </div>
           <Fieldset legend="Tables:">
