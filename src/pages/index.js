@@ -9,7 +9,6 @@ import { Column } from "primereact/column";
 import { Fieldset } from "primereact/fieldset";
 
 export default function Home() {
-  const emptyData = [];
   const [data, setData] = useState([]);
   const [database, setDatabase] = useState("demo");
   const [apiRoute, setApiRoute] = useState("data-demo");
@@ -32,7 +31,7 @@ export default function Home() {
       "/api/" + apiRoute + "?" + queryString.stringify({ query })
     );
     const data = await response.json();
-    console.log("data", data);
+
     //reconstruct columns from data:
     const columns = [];
     if (data?.data?.length > 0) {
@@ -50,7 +49,7 @@ export default function Home() {
     if (data.error) {
       setTables([]);
       setError(data.error);
-      setData(emptyData);
+      setData([]);
       setColumns([]);
       return;
     }
@@ -58,12 +57,15 @@ export default function Home() {
     setData(data.data);
   }
   useEffect(() => {
-    fetchData();
     console.log("data", data);
+  }, [data]);
+
+  useEffect(() => {
+    fetchData();
   }, [submit]);
 
   useEffect(() => {
-    setData(emptyData);
+    setData([]);
     if (database === "demo") {
       setApiRoute("data-demo");
     } else if (database === "demo2") {
@@ -112,8 +114,8 @@ export default function Home() {
           </div>
           <Fieldset legend="Tables:">
             <div className="m-0">
-              {tables.map((table) => (
-                <div>{table}</div>
+              {tables.map((item, index) => (
+                <div key={index}>{item}</div>
               ))}
             </div>
           </Fieldset>
