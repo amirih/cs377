@@ -60,6 +60,12 @@ export default function Home() {
   }, [data]);
 
   useEffect(() => {
+    //clean up and fetch data
+    setColumns([]);
+    setError("");
+    setData([]);
+    setTables([]);
+
     fetchData();
     console.log("returned data:", data);
     console.log("returned columns:", columns);
