@@ -6,6 +6,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Fieldset } from "primereact/fieldset";
 
 export default function Home() {
   const emptyData = [];
@@ -16,6 +17,7 @@ export default function Home() {
   const [submit, setSubmit] = useState(false);
   const [columns, setColumns] = useState([]);
   const [error, setError] = useState("");
+  const [tables, setTables] = useState(["course", "student", "enroll"]);
 
   const items = [].map((item) => ({
     label: item,
@@ -39,8 +41,14 @@ export default function Home() {
       }
       setColumns(columns);
       setError("");
+      const tables = [];
+      for (const key in data.tables) {
+        tables.push(data.tables[key].tablename);
+      }
+      setTables(tables);
     }
     if (data.error) {
+      setTables([]);
       setError(data.error);
       setData(emptyData);
       setColumns([]);
@@ -51,6 +59,7 @@ export default function Home() {
   }
   useEffect(() => {
     fetchData();
+    console.log("data", data);
   }, [submit]);
 
   useEffect(() => {
@@ -101,6 +110,13 @@ export default function Home() {
               cols={100}
             />
           </div>
+          <Fieldset legend="Tables:">
+            <p className="m-0">
+              {tables.map((table) => (
+                <div>{table}</div>
+              ))}
+            </p>
+          </Fieldset>
           <div>
             {data && (
               <DataTable value={data} tableStyle={{ minWidth: "50rem" }}>
