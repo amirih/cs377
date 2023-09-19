@@ -18,6 +18,5 @@ export const getTables = async (pool) => {
   FROM pg_catalog.pg_tables 
   WHERE schemaname NOT IN ('pg_catalog', 'information_schema');`;
   const queryResult = await databaseQuery(pool, queryString);
-  console.log("queryResult", queryResult);
   return queryResult;
 };
