@@ -41,16 +41,17 @@ export default function Home() {
       setColumns(columns);
       setError("");
     }
-    if (data.error) {
-      setError(data.error);
-      setData([]);
-      setColumns([]);
-    }
     const tables = [];
     for (const key in data.tables) {
       tables.push(data.tables[key].tablename);
     }
     setTables(tables);
+    if (data.error) {
+      setError(data.error);
+      setData([]);
+      setColumns([]);
+      return;
+    }
 
     setData(data.data);
   }
@@ -60,6 +61,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData();
+    console.log("returned data:", data);
   }, [submit]);
 
   useEffect(() => {
