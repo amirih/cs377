@@ -48,8 +48,8 @@ export default function Home() {
       return;
     }
     const tables = [];
-    for (const key in data?.tables) {
-      tables.push(data?.tables[key]?.tablename);
+    for (const key in data.tables) {
+      tables.push(data.tables[key].tablename);
     }
     setTables(tables);
 
