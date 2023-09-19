@@ -92,23 +92,28 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          <div className="p-2">
             <Dropdown
               value={database}
               onChange={(e) => setDatabase(e.value)}
               options={databaseOptions}
               optionLabel="name"
               placeholder="Select a Database"
-              className="w-full md:w-14rem"
+              className="w-full m-1 md:w-14rem"
             />
-            <Button label="Submit" onClick={() => setSubmit(!submit)} />
+            <Button
+              label="Submit"
+              onClick={() => setSubmit(!submit)}
+              className="m-1"
+            />
           </div>
           <div>
             <InputTextarea
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              rows={20}
+              rows={10}
               cols={30}
+              className="m-1"
             />
           </div>
           <Fieldset legend="Tables:">
