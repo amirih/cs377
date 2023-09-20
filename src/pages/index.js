@@ -8,6 +8,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Fieldset } from "primereact/fieldset";
 import { Toast } from "primereact/toast";
+import { Message } from "primereact/message";
 
 export default function Home() {
   const defaultQuery = "SELECT * FROM university.course;";
@@ -110,6 +111,11 @@ export default function Home() {
           className="border-2 border-dashed surface-border border-round surface-card"
           style={{ minHeight: "20rem" }}
         >
+          <Message
+            severity="error"
+            text="All the data you added to the database will be visible to other students"
+            className="m-1 md:m-1 lg:m-1"
+          />
           <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
             <div className="flex lg:align-items-center flex-column lg:flex-row">
               <div className="text-3xl font-medium text-900 mr-0 lg:mr-4 mb-4 lg:mb-0">
@@ -122,7 +128,6 @@ export default function Home() {
               />
             </div>
           </div>
-
           <div className="p-2">
             <Dropdown
               value={database}
@@ -137,12 +142,21 @@ export default function Home() {
               onClick={() => setSubmit(!submit)}
               className="m-1"
             />
+            <Message
+              severity="info"
+              text="All the students have super user privilege "
+              className="m-1 md:m-1 lg:m-1"
+            />
           </div>
-
           <Button
             label="Reset Database to Default"
             onClick={() => resetDatabase()}
             className="m-1"
+          />
+          <Message
+            severity="warn"
+            text="All the data you and other students added to the database will be deleted after you reset the database"
+            className="m-1 md:m-1 lg:m-1"
           />
           <div>
             <InputTextarea
