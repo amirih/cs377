@@ -1,4 +1,4 @@
-export const createTablesQuery = `
+export const demoCreateQuery = `
 drop schema if exists University cascade;
 create schema University;
 set search_path to University;
@@ -51,7 +51,7 @@ create table Took(
 	foreign key (oID) references Offering);
 `;
 
-export const insertDataQuery = `
+export const demoInsertQuery = `
 SET search_path to University;
 
 insert into Student values (99132, 'Avery', 'Marchmount', 'StG', 'avery@cs', 3.13);
@@ -175,4 +175,102 @@ insert into Took values (11111, 14, 40);
 insert into Took values (11111, 15, 0);
 insert into Took values (11111, 16, 17);
 insert into Took values (11111, 34, 45);
+`;
+
+export const demo3CreateQuery = `
+drop schema if exists university3 cascade;
+CREATE SCHEMA university3;
+set search_path to university3;
+
+CREATE TABLE Vendors (
+    Vnr VARCHAR(10) PRIMARY KEY,
+    Vname VARCHAR(50),
+    Status INT,
+    Location VARCHAR(50)
+);
+
+CREATE TABLE Teams (
+    Tnr VARCHAR(10) PRIMARY KEY,
+    Tname VARCHAR(50),
+    Location VARCHAR(50)
+);
+
+CREATE TABLE Parts (
+    Pnr VARCHAR(10) PRIMARY KEY,
+    Pname VARCHAR(50),
+    Color VARCHAR(10),
+    Price INT
+);
+
+CREATE TABLE VTP (
+    Vnr VARCHAR(10),
+    Tnr VARCHAR(10),
+    Pnr VARCHAR(10),
+    Number INT,
+    PRIMARY KEY (Vnr, Tnr, Pnr),
+    FOREIGN KEY (Vnr) REFERENCES Vendors(Vnr),
+    FOREIGN KEY (Tnr) REFERENCES Teams(Tnr),
+    FOREIGN KEY (Pnr) REFERENCES Parts(Pnr)
+);
+`;
+
+export const demo3InsertQuery = `
+-- Inserting data into Vendors table
+INSERT INTO Vendors(Vnr, Vname, Status, Location) VALUES 
+('L1', 'Smith', 20, 'Berlin'),
+('L2', 'Miller', 10, 'Atlanta'),
+('L3', 'Williams', 50, 'Atlanta'),
+('L4', 'Johnson', 30, 'Los Angeles'),
+('L5', 'David', 40, 'New Orleans');
+
+-- Inserting data into Teams table
+INSERT INTO Teams(Tnr, Tname, Location) VALUES 
+('T1', 'Peach', 'Atlanta'),
+('T2', 'Mardi Gras', 'New Orleans'),
+('T3', 'Octoberfest', 'Munich'),
+('T4', 'Software', 'Los Angeles'),
+('T5', 'Hardware', 'New Orleans'),
+('T6', 'Tech Support', 'Atlanta'),
+('T7', 'Unicorns', 'New Orleans'),
+('T8', 'Crazy Cats', 'Munich');
+
+-- Inserting data into Parts table
+INSERT INTO Parts(Pnr, Pname, Color, Price) VALUES 
+('P1', 'Adapter', 'Red', 15),
+('P2', 'Cable', 'Blue', 27),
+('P3', 'Switch', 'White', 5),
+('P4', 'Box', 'Red', 21),
+('P5', 'Disk', 'Blue', 2),
+('P6', 'Screw', 'Red', 3);
+
+-- Inserting data into VTP table
+INSERT INTO VTP(Vnr, Tnr, Pnr, Number) VALUES 
+('L1', 'T1', 'P1', 200),
+('L1', 'T1', 'P4', 300),
+('L1', 'T1', 'P6', 200),
+('L1', 'T4', 'P1', 700),
+('L1', 'T8', 'P1', 100),
+('L2', 'T1', 'P3', 400),
+('L2', 'T2', 'P3', 200),
+('L2', 'T2', 'P5', 100),
+('L2', 'T3', 'P3', 200),
+('L2', 'T4', 'P3', 500),
+('L2', 'T5', 'P3', 600),
+('L2', 'T6', 'P3', 400),
+('L2', 'T7', 'P3', 800),
+('L2', 'T8', 'P3', 300),
+('L3', 'T1', 'P3', 200),
+('L3', 'T2', 'P4', 500),
+('L4', 'T3', 'P6', 300),
+('L4', 'T7', 'P6', 300),
+('L5', 'T2', 'P2', 200),
+('L5', 'T2', 'P6', 200),
+('L5', 'T4', 'P1', 1000),
+('L5', 'T4', 'P2', 100),
+('L5', 'T4', 'P3', 1200),
+('L5', 'T4', 'P4', 800),
+('L5', 'T4', 'P5', 400),
+('L5', 'T4', 'P6', 500),
+('L5', 'T5', 'P5', 500),
+('L5', 'T7', 'P5', 200);
 `;

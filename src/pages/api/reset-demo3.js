@@ -1,8 +1,8 @@
-import { demoPool as pool } from "@db/pool";
+import { demo3Pool as pool } from "@db/pool";
 import { resetDatabase } from "@db/utils";
 import {
-  demoCreateQuery as createQuery,
-  demoInsertQuery as insertQuery,
+  demo3CreateQuery as createQuery,
+  demo3InsertQuery as insertQuery,
 } from "@db/queries";
 
 export default async (req, res) => {

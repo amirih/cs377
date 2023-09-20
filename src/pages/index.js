@@ -11,11 +11,14 @@ import { Toast } from "primereact/toast";
 import { Message } from "primereact/message";
 
 export default function Home() {
-  const defaultQuery = "SELECT * FROM university.course;";
+  const defaultQuery = {
+    demo: "SELECT * FROM university.course;",
+    demo3: "SELECT * FROM university3.Vendors;",
+  };
   const [data, setData] = useState([]);
   const [database, setDatabase] = useState("demo");
-  const [apiRoute, setApiRoute] = useState("data-demo");
-  const [query, setQuery] = useState(defaultQuery);
+  const [apiRoute, setApiRoute] = useState("data-");
+  const [query, setQuery] = useState(defaultQuery[database]);
   const [submit, setSubmit] = useState(false);
   const [columns, setColumns] = useState([]);
   const [error, setError] = useState("");
@@ -25,13 +28,13 @@ export default function Home() {
   const items = [].map((item) => ({
     label: item,
   }));
-  const databaseOptions = ["demo"].map((item) => ({
+  const databaseOptions = ["demo", "demo3"].map((item) => ({
     name: item,
     value: item,
   }));
 
   async function resetDatabase() {
-    const response = await fetch("/api/reset-demo");
+    const response = await fetch(`/api/reset-${database}`);
     console.log("response", response);
     const responseStatus = response.status;
     toast.current.show({
@@ -40,14 +43,14 @@ export default function Home() {
       detail: responseStatus === 200 ? "Database Reset" : "Error",
     });
     if (response.ok) {
-      setQuery(defaultQuery);
+      setQuery(defaultQuery[database]);
       fetchData();
     }
   }
 
   async function fetchData() {
     const response = await fetch(
-      "/api/" + apiRoute + "?" + queryString.stringify({ query })
+      "/api/" + apiRoute + database + "?" + queryString.stringify({ query })
     );
     const data = await response.json();
 
@@ -95,11 +98,12 @@ export default function Home() {
 
   useEffect(() => {
     setData([]);
-    if (database === "demo") {
-      setApiRoute("data-demo");
-    } else if (database === "demo2") {
-      setApiRoute("data-demo2");
-    }
+    setQuery(defaultQuery[database]);
+    // if (database === "demo") {
+    //   setApiRoute("data-demo");
+    // } else if (database === "demo3") {
+    //   setApiRoute("data-demo3");
+    // }
   }, [database]);
 
   return (

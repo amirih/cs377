@@ -1,5 +1,3 @@
-import { createTablesQuery, insertDataQuery } from "./queries";
-
 export const databaseQuery = async (pool, queryString) => {
   let client;
   try {
@@ -22,27 +20,12 @@ export const getTables = async (pool) => {
   const queryResult = await databaseQuery(pool, queryString);
   return queryResult;
 };
-export const createDefaultTables = async (pool) => {
-  const queryResult = await databaseQuery(pool, createTablesQuery);
-  return queryResult;
-};
 
-export const insertDefaultData = async (pool) => {
-  const queryResult = await databaseQuery(pool, insertDataQuery);
-  return queryResult;
-};
-
-export const dropTables = async (pool) => {
-  const queryString = `drop schema if exists University cascade;`;
-  const queryResult = await databaseQuery(pool, queryString);
-  return queryResult;
-};
-
-export const resetDemo = async (pool) => {
-  const queryResult = await databaseQuery(pool, createTablesQuery);
+export const resetDatabase = async (pool, createQuery, insertQuery) => {
+  const queryResult = await databaseQuery(pool, createQuery);
   if (queryResult.error) {
     return queryResult;
   }
-  const insertResult = await databaseQuery(pool, insertDataQuery);
+  const insertResult = await databaseQuery(pool, insertQuery);
   return insertResult;
 };
