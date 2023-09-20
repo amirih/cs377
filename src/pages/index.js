@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import queryString from "qs";
 import { TabMenu } from "primereact/tabmenu";
 import { Dropdown } from "primereact/dropdown";
@@ -7,16 +7,19 @@ import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Fieldset } from "primereact/fieldset";
+import { Toast } from "primereact/toast";
 
 export default function Home() {
+  const defaultQuery = "SELECT * FROM university.course;";
   const [data, setData] = useState([]);
   const [database, setDatabase] = useState("demo");
   const [apiRoute, setApiRoute] = useState("data-demo");
-  const [query, setQuery] = useState("SELECT * FROM university.course");
+  const [query, setQuery] = useState(defaultQuery);
   const [submit, setSubmit] = useState(false);
   const [columns, setColumns] = useState([]);
   const [error, setError] = useState("");
   const [tables, setTables] = useState(["course", "student", "enroll"]);
+  const toast = useRef(null);
 
   const items = [].map((item) => ({
     label: item,
@@ -25,6 +28,21 @@ export default function Home() {
     name: item,
     value: item,
   }));
+
+  async function resetDatabase() {
+    const response = await fetch("/api/reset-demo");
+    console.log("response", response);
+    const responseStatus = response.status;
+    toast.current.show({
+      severity: "info",
+      summary: response.ok ? "Success" : "Error",
+      detail: responseStatus === 200 ? "Database Reset" : "Error",
+    });
+    if (response.ok) {
+      setQuery(defaultQuery);
+      fetchData();
+    }
+  }
 
   async function fetchData() {
     const response = await fetch(
@@ -59,6 +77,7 @@ export default function Home() {
     console.log("data", data);
   }, [data]);
 
+  useEffect(() => {}, [query]);
   useEffect(() => {
     //clean up and fetch data
     setColumns([]);
@@ -84,6 +103,8 @@ export default function Home() {
 
   return (
     <div>
+      <Toast ref={toast} />
+
       <div className="p-4 md:p-6 lg:p-8">
         <div
           className="border-2 border-dashed surface-border border-round surface-card"
@@ -117,6 +138,12 @@ export default function Home() {
               className="m-1"
             />
           </div>
+
+          <Button
+            label="Reset Database to Default"
+            onClick={() => resetDatabase()}
+            className="m-1"
+          />
           <div>
             <InputTextarea
               value={query}
