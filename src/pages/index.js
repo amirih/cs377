@@ -99,11 +99,7 @@ export default function Home() {
   useEffect(() => {
     setData([]);
     setQuery(defaultQuery[database]);
-    // if (database === "demo") {
-    //   setApiRoute("data-demo");
-    // } else if (database === "demo3") {
-    //   setApiRoute("data-demo3");
-    // }
+    setSubmit(!submit);
   }, [database]);
 
   return (
@@ -141,21 +137,24 @@ export default function Home() {
               placeholder="Select a Database"
               className="w-full m-1 md:w-14rem"
             />
-            <Button
-              label="Submit"
-              onClick={() => setSubmit(!submit)}
-              className="m-1"
-            />
+
             <Message
               severity="info"
               text="All the students have super user privilege "
               className="m-1 md:m-1 lg:m-1"
             />
           </div>
+          <Fieldset legend="Tables:" className="m-1">
+            <div className="m-0">
+              {tables.map((item, index) => (
+                <div key={index}>{item}</div>
+              ))}
+            </div>
+          </Fieldset>
           <Button
             label="Reset Database to Default"
             onClick={() => resetDatabase()}
-            className="m-1"
+            className="m-1 bg-blue-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-blue-600 transition-duration-200"
           />
           <Message
             severity="warn"
@@ -168,16 +167,15 @@ export default function Home() {
               onChange={(e) => setQuery(e.target.value)}
               rows={10}
               cols={30}
-              className="m-1"
+              className="m-2"
             />
           </div>
-          <Fieldset legend="Tables:">
-            <div className="m-0">
-              {tables.map((item, index) => (
-                <div key={index}>{item}</div>
-              ))}
-            </div>
-          </Fieldset>
+          <Button
+            label="Submit"
+            onClick={() => setSubmit(!submit)}
+            className="m-1 bg-green-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-green-600 transition-duration-200"
+          />
+
           <div>
             {data && (
               <DataTable value={data} tableStyle={{ minWidth: "50rem" }}>
