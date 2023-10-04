@@ -229,14 +229,11 @@ insert into Took values (3, 13, 90);
 insert into Took values (3, 26, 71);
 insert into Took values (3, 17, 59);
 
-insert into Took values (4, 1, 99);
 insert into Took values (4, 14, 98);
 insert into Took values (4, 31, 82);
-insert into Took values (4, 21, 71);
 insert into Took values (4, 11, 39);
 insert into Took values (4, 34, 62);
 insert into Took values (4, 35, 75);
-insert into Took values (4, 3, 82);
 insert into Took values (4, 5, 59);
 insert into Took values (4, 6, 72);
 insert into Took values (4, 7, 89);
