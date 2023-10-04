@@ -63,8 +63,11 @@ insert into Student values (1, 'FirstName1', 'Surname1', 'UTM', 'name1@cs', 0.1)
 insert into Student values (2, 'FirstName2', 'Surname2', 'UTM', 'name2@cs', 0.2);
 insert into Student values (3, 'FirstName3', 'Surname3', 'UTM', 'name3@cs', 0.3);
 insert into Student values (4, 'FirstName4', 'Surname4', 'UTM', 'name4@cs', 0.4);
+insert into Student values (5, 'FirstName5', 'Surname5', 'UTM', 'name5@cs', 0.5);
+
 
 insert into Course values (343, 'Intro to Databases', 'CSC', false);
+insert into Course values (343, 'Intro to Databases', 'MTH', false);
 insert into Course values (207, 'Software Design', 'CSC', false);
 insert into Course values (148, 'Intro to Comp Sci', 'CSC', false);
 insert into Course values (263, 'Data Struct & Analy', 'CSC', false);
@@ -101,6 +104,8 @@ insert into Offering values (16, 110, 'ENG', 20089, 'Atwood');
 insert into Offering values (17, 320, 'ENV', 20089, 'Suzuki');
 insert into Offering values (18, 220, 'HIS', 20089, 'Young');
 insert into Offering values (19, 220, 'HIS', 20089, 'Dow');
+insert into Offering values (20, 343, 'MTH', 20089, 'Horton');
+
 
 insert into Offering values (21, 343, 'CSC', 20081, 'Mylopoulos');
 insert into Offering values (22, 343, 'CSC', 20081, 'Mylopoulos');
@@ -243,6 +248,8 @@ insert into Took values (4, 28, 91);
 insert into Took values (4, 13, 90);
 insert into Took values (4, 26, 71);
 insert into Took values (4, 17, 59);
+
+insert into Took values (5, 20, 99);
 `;
 
 export const demo3CreateQuery = `
