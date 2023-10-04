@@ -34,11 +34,6 @@ export default function Home() {
   }));
 
   async function resetDatabase() {
-    // ask for confirmation
-    // if confirmed, send request to reset database
-    // if success, show toast
-    // if error, show toast
-
     const confirm = window.confirm(
       "NOTE: You will lose all the data you and other students added to the database. "
     );
