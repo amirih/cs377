@@ -59,6 +59,11 @@ insert into Student values (98000, 'William', 'Fairgrieve', 'StG', 'will@cs', 4.
 insert into Student values (99999, 'Afsaneh', 'Ali', 'UTSC', 'aali@cs', 2.98);
 insert into Student values (00157, 'Leilani', 'Lakemeyer', 'UTM', 'lani@cs', 3.42);
 insert into Student values (11111, 'Homer', 'Simpson', 'StG', 'doh@gmail', 0.4);
+insert into Student values (1, 'FirstName1', 'Surname1', 'UTM', 'name1@cs', 0.1);
+insert into Student values (2, 'FirstName2', 'Surname2', 'UTM', 'name2@cs', 0.2);
+insert into Student values (3, 'FirstName3', 'Surname3', 'UTM', 'name3@cs', 0.3);
+insert into Student values (4, 'FirstName4', 'Surname4', 'UTM', 'name4@cs', 0.4);
+
 
 insert into Course values (343, 'Intro to Databases', 'CSC', false);
 insert into Course values (207, 'Software Design', 'CSC', false);
@@ -175,6 +180,70 @@ insert into Took values (11111, 14, 40);
 insert into Took values (11111, 15, 0);
 insert into Took values (11111, 16, 17);
 insert into Took values (11111, 34, 45);
+
+insert into Took values (1, 1, 99);
+insert into Took values (1, 14, 98);
+insert into Took values (1, 31, 82);
+insert into Took values (1, 21, 71);
+insert into Took values (1, 11, 39);
+insert into Took values (1, 34, 62);
+insert into Took values (1, 35, 75);
+insert into Took values (1, 3, 82);
+insert into Took values (1, 5, 59);
+insert into Took values (1, 6, 72);
+insert into Took values (1, 7, 89);
+insert into Took values (1, 28, 91);
+insert into Took values (1, 13, 90);
+insert into Took values (1, 26, 71);
+insert into Took values (1, 17, 59);
+
+insert into Took values (2, 1, 99);
+insert into Took values (2, 14, 98);
+insert into Took values (2, 31, 82);
+insert into Took values (2, 21, 71);
+insert into Took values (2, 11, 39);
+insert into Took values (2, 34, 62);
+insert into Took values (2, 35, 75);
+insert into Took values (2, 3, 82);
+insert into Took values (2, 5, 59);
+insert into Took values (2, 6, 72);
+insert into Took values (2, 7, 89);
+insert into Took values (2, 28, 91);
+insert into Took values (2, 13, 90);
+insert into Took values (2, 26, 71);
+insert into Took values (2, 17, 59);
+
+insert into Took values (3, 1, 99);
+insert into Took values (3, 14, 98);
+insert into Took values (3, 31, 82);
+insert into Took values (3, 21, 71);
+insert into Took values (3, 11, 39);
+insert into Took values (3, 34, 62);
+insert into Took values (3, 35, 75);
+insert into Took values (3, 3, 82);
+insert into Took values (3, 5, 59);
+insert into Took values (3, 6, 72);
+insert into Took values (3, 7, 89);
+insert into Took values (3, 28, 91);
+insert into Took values (3, 13, 90);
+insert into Took values (3, 26, 71);
+insert into Took values (3, 17, 59);
+
+insert into Took values (4, 1, 99);
+insert into Took values (4, 14, 98);
+insert into Took values (4, 31, 82);
+insert into Took values (4, 21, 71);
+insert into Took values (4, 11, 39);
+insert into Took values (4, 34, 62);
+insert into Took values (4, 35, 75);
+insert into Took values (4, 3, 82);
+insert into Took values (4, 5, 59);
+insert into Took values (4, 6, 72);
+insert into Took values (4, 7, 89);
+insert into Took values (4, 28, 91);
+insert into Took values (4, 13, 90);
+insert into Took values (4, 26, 71);
+insert into Took values (4, 17, 59);
 `;
 
 export const demo3CreateQuery = `
