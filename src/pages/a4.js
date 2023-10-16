@@ -14,7 +14,7 @@ const MarkdownPage = ({ content }) => {
 };
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), "solutions/a4.md");
+  const filePath = path.join(process.cwd(), "solutions/a0.md");
   const content = fs.readFileSync(filePath, "utf8");
 
   return {
