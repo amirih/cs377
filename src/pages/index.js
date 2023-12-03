@@ -112,94 +112,95 @@ export default function Home() {
 
   return (
     <div>
-      <Toast ref={toast} />
+    <h1> I am down :( </h1>
+      // <Toast ref={toast} />
 
-      <div className="p-4 md:p-6 lg:p-8">
-        <div
-          className="border-2 border-dashed surface-border border-round surface-card"
-          style={{ minHeight: "20rem" }}
-        >
-          <Message
-            severity="error"
-            text="All the data you added to the database will be visible to other students"
-            className="m-1 md:m-1 lg:m-1"
-          />
-          <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
-            <div className="flex lg:align-items-center flex-column lg:flex-row">
-              <div className="text-3xl font-medium text-900 mr-0 lg:mr-4 mb-4 lg:mb-0">
-                CS 377 Emory University
-              </div>
-              <TabMenu
-                model={items}
-                activeitem={items[0]}
-                className="flex-grow-1"
-              />
-            </div>
-          </div>
-          <div className="p-2">
-            <Dropdown
-              value={database}
-              onChange={(e) => setDatabase(e.value)}
-              options={databaseOptions}
-              optionLabel="name"
-              placeholder="Select a Database"
-              className="w-full m-1 md:w-14rem"
-            />
+      // <div className="p-4 md:p-6 lg:p-8">
+      //   <div
+      //     className="border-2 border-dashed surface-border border-round surface-card"
+      //     style={{ minHeight: "20rem" }}
+      //   >
+      //     <Message
+      //       severity="error"
+      //       text="All the data you added to the database will be visible to other students"
+      //       className="m-1 md:m-1 lg:m-1"
+      //     />
+      //     <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
+      //       <div className="flex lg:align-items-center flex-column lg:flex-row">
+      //         <div className="text-3xl font-medium text-900 mr-0 lg:mr-4 mb-4 lg:mb-0">
+      //           CS 377 Emory University
+      //         </div>
+      //         <TabMenu
+      //           model={items}
+      //           activeitem={items[0]}
+      //           className="flex-grow-1"
+      //         />
+      //       </div>
+      //     </div>
+      //     <div className="p-2">
+      //       <Dropdown
+      //         value={database}
+      //         onChange={(e) => setDatabase(e.value)}
+      //         options={databaseOptions}
+      //         optionLabel="name"
+      //         placeholder="Select a Database"
+      //         className="w-full m-1 md:w-14rem"
+      //       />
 
-            <Message
-              severity="info"
-              text="All the students have super user privilege "
-              className="m-1 md:m-1 lg:m-1"
-            />
-          </div>
-          <Fieldset legend="Tables:" className="m-1">
-            <div className="m-0">
-              {tables.map((item, index) => (
-                <div key={index}>{item}</div>
-              ))}
-            </div>
-          </Fieldset>
-          <Button
-            label="Reset Database to Default"
-            onClick={() => resetDatabase()}
-            className="m-1 bg-blue-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-blue-600 transition-duration-200"
-          />
-          <Message
-            severity="warn"
-            text="All the data you and other students added to the database will be deleted after you reset the database"
-            className="m-1 md:m-1 lg:m-1"
-          />
-          <div>
-            <InputTextarea
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              rows={10}
-              cols={30}
-              className="m-2"
-            />
-          </div>
-          <Button
-            label="Submit"
-            onClick={() => setSubmit(!submit)}
-            className="m-1 bg-green-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-green-600 transition-duration-200"
-          />
+      //       <Message
+      //         severity="info"
+      //         text="All the students have super user privilege "
+      //         className="m-1 md:m-1 lg:m-1"
+      //       />
+      //     </div>
+      //     <Fieldset legend="Tables:" className="m-1">
+      //       <div className="m-0">
+      //         {tables.map((item, index) => (
+      //           <div key={index}>{item}</div>
+      //         ))}
+      //       </div>
+      //     </Fieldset>
+      //     <Button
+      //       label="Reset Database to Default"
+      //       onClick={() => resetDatabase()}
+      //       className="m-1 bg-blue-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-blue-600 transition-duration-200"
+      //     />
+      //     <Message
+      //       severity="warn"
+      //       text="All the data you and other students added to the database will be deleted after you reset the database"
+      //       className="m-1 md:m-1 lg:m-1"
+      //     />
+      //     <div>
+      //       <InputTextarea
+      //         value={query}
+      //         onChange={(e) => setQuery(e.target.value)}
+      //         rows={10}
+      //         cols={30}
+      //         className="m-2"
+      //       />
+      //     </div>
+      //     <Button
+      //       label="Submit"
+      //       onClick={() => setSubmit(!submit)}
+      //       className="m-1 bg-green-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-green-600 transition-duration-200"
+      //     />
 
-          <div>
-            {data && (
-              <DataTable value={data} tableStyle={{ minWidth: "50rem" }}>
-                {columns.map((col) => (
-                  <Column
-                    key={col.field}
-                    field={col.field}
-                    header={col.header}
-                  ></Column>
-                ))}
-              </DataTable>
-            )}
-            {error && <div className="text-red-500">{error}</div>}
-          </div>
-        </div>
-      </div>
+      //     <div>
+      //       {data && (
+      //         <DataTable value={data} tableStyle={{ minWidth: "50rem" }}>
+      //           {columns.map((col) => (
+      //             <Column
+      //               key={col.field}
+      //               field={col.field}
+      //               header={col.header}
+      //             ></Column>
+      //           ))}
+      //         </DataTable>
+      //       )}
+      //       {error && <div className="text-red-500">{error}</div>}
+      //     </div>
+      //   </div>
+      // </div>
     </div>
   );
 }
