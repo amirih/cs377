@@ -112,7 +112,7 @@ export default function Home() {
 
   return (
     <div>
-    <h1> I am down :( </h1>
+    // <h1> I am down :( </h1>
       <Toast ref={toast} />
 
       <div className="p-4 md:p-6 lg:p-8">
