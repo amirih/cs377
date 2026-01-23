@@ -50,7 +50,10 @@ export default function Home() {
     toast.current.show({
       severity: "info",
       summary: response.ok ? "Success" : "Error",
-      detail: responseStatus === 200 ? "Database Reset" : responseData.error,
+      detail:
+        responseStatus === 200
+          ? "Database reset successfully"
+          : responseData.error,
     });
     if (response.ok) {
       setQuery(defaultQuery[database]);
@@ -164,7 +167,7 @@ export default function Home() {
           <Button
             label="Reset Database to Default"
             onClick={() => resetDatabase()}
-            className="m-1 bg-blue-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-blue-600 transition-duration-200"
+            className="m-1 p-button-secondary shadow-1 border-round-sm border-none cursor-pointer transition-duration-200"
           />
           <Message
             severity="warn"
@@ -183,7 +186,7 @@ export default function Home() {
           <Button
             label="Submit"
             onClick={() => setSubmit(!submit)}
-            className="m-1 bg-green-500 shadow-1 border-round-sm border-none cursor-pointer hover:bg-green-600 transition-duration-200"
+            className="m-1 p-button-success shadow-1 border-round-sm border-none cursor-pointer    transition-duration-200"
           />
 
           <div>
