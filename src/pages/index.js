@@ -35,7 +35,7 @@ export default function Home() {
 
   async function resetDatabase() {
     const confirm = window.confirm(
-      "NOTE: You will lose all the data you and other students added to the database. "
+      "NOTE: You will lose all the data you and other students added to the database. This action cannot be undone. Are you sure you want to reset the database?",
     );
 
     if (!confirm) {
@@ -45,10 +45,12 @@ export default function Home() {
     const response = await fetch(`/api/reset-${database}`);
     console.log("response", response);
     const responseStatus = response.status;
+    const responseData = await response.json();
+
     toast.current.show({
       severity: "info",
       summary: response.ok ? "Success" : "Error",
-      detail: responseStatus === 200 ? "Database Reset" : "Error",
+      detail: responseStatus === 200 ? "Database Reset" : responseData.error,
     });
     if (response.ok) {
       setQuery(defaultQuery[database]);
@@ -58,7 +60,7 @@ export default function Home() {
 
   async function fetchData() {
     const response = await fetch(
-      "/api/" + apiRoute + database + "?" + queryString.stringify({ query })
+      "/api/" + apiRoute + database + "?" + queryString.stringify({ query }),
     );
     const data = await response.json();
 
@@ -203,4 +205,3 @@ export default function Home() {
     </div>
   );
 }
-
