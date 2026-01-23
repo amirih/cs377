@@ -36,3 +36,47 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## PSQL:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install postgresql postgresql-contrib
+psql
+```
+
+```sql
+CREATE ROLE cs377_students WITH LOGIN PASSWORD 'cs377_students_password';
+CREATE DATABASE demo;
+CREATE DATABASE demo3;
+GRANT ALL PRIVILEGES ON DATABASE demo TO cs377_students;
+GRANT ALL PRIVILEGES ON DATABASE demo3 TO cs377_students;
+\q
+```
+
+```bash
+exit
+```
+
+17 is the current version of my psql, replace it with your own
+
+```bash
+nano /etc/postgresql/17/main/pg_hba.conf
+```
+
+add this to the end f the file:
+
+```
+host    all             all             0.0.0.0/0               md5
+```
+
+```bash
+nano /etc/postgresql/17/main/postgresql.conf
+```
+
+```
+listen_addresses = '*'
+```
+
+
+
