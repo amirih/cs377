@@ -78,5 +78,15 @@ nano /etc/postgresql/17/main/postgresql.conf
 listen_addresses = '*'
 ```
 
+```bash
+sudo systemctl restart postgresql  
+```
+
+
+```bash
+psql -h 45.55.151.158 -U cs377_students -d demo
+```
+
+cs377-students-password
 
 
