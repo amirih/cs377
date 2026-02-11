@@ -90,7 +90,9 @@ psql -h 45.55.151.158 -U cs377_students -d demo
 Password is: cs377-students-password
 
 
-# Query Examples:
+# Quick Query Examples:
+
+## SELECT
 
 ```sql
 SELECT * FROM university.course;
@@ -117,3 +119,16 @@ WHERE dept='CSC'
 ;
 ```
 
+```sql
+SELECT * 
+FROM university.offering
+WHERE dept='CSC' AND instructor='Jepson'
+;
+```
+
+```sql
+SELECT * 
+FROM university.student
+WHERE cgpa > 3.0
+;
+```
