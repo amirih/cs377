@@ -87,6 +87,33 @@ sudo systemctl restart postgresql
 psql -h 45.55.151.158 -U cs377_students -d demo
 ```
 
-cs377-students-password
+Password is: cs377-students-password
 
+
+# Query Examples:
+
+```sql
+SELECT * FROM university.course;
+```
+
+```sql
+SELECT * 
+FROM university.course
+WHERE cnum >300
+;
+```
+
+```sql
+SELECT * 
+FROM university.course
+WHERE name='Software Design'
+;
+```
+
+```sql
+SELECT * 
+FROM university.course
+WHERE dept='CSC'
+;
+```
 
