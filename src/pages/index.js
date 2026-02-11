@@ -129,11 +129,31 @@ export default function Home() {
             text="All the data you added to the database will be visible to other students"
             className="m-1 md:m-1 lg:m-1"
           />
+          <div className="p-2">
+            <a
+              href="https://github.com/amirih/cs377"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Github
+            </a>{" "}
+            |{" "}
+            <a
+              href="https://github.com/amirih/cs377/blob/main/demo.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Examples
+            </a>
+          </div>
           <div className="surface-section px-4 py-5 md:px-6 lg:px-8">
             <div className="flex lg:align-items-center flex-column lg:flex-row">
               <div className="text-3xl font-medium text-900 mr-0 lg:mr-4 mb-4 lg:mb-0">
                 CS 377 Emory University
               </div>
+
               <TabMenu
                 model={items}
                 activeitem={items[0]}
@@ -190,7 +210,7 @@ export default function Home() {
           />
 
           <div>
-            {data && (
+            {data && data.length > 0 && (
               <DataTable value={data} tableStyle={{ minWidth: "50rem" }}>
                 {columns.map((col) => (
                   <Column
@@ -201,7 +221,16 @@ export default function Home() {
                 ))}
               </DataTable>
             )}
-            {error && <div className="text-red-500">{error}</div>}
+            {data && data.length === 0 && !error && (
+              <div className="font-italic text-gray-500 surface-overlay p-4">
+                No data to display; No error either;
+              </div>
+            )}
+            {error && (
+              <div className="font-italic text-red-500 surface-overlay p-4">
+                {error}
+              </div>
+            )}
           </div>
         </div>
       </div>
