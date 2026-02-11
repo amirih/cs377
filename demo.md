@@ -1,6 +1,6 @@
 # University Database SQL Examples
 
-Tables: - `course(cnum, title, dept, writing)` -
+Tables: - `course(cnum, name, dept, breadth)` -
 `offering(oid, cnum, dept, term, instructor)` -
 `student(sid, firstname, surname, campus, email, cgpa)` -
 `took(sid, oid, grade)`
@@ -48,7 +48,7 @@ GROUP BY oid;
 **Add a course**
 
 ``` sql
-INSERT INTO university.course (cnum, title, dept, writing)
+INSERT INTO university.course (cnum, name, dept, breadth)
 VALUES (999, 'Special Topics', 'CSC', false);
 ```
 
@@ -116,10 +116,10 @@ FROM university.student s
 JOIN university.took t ON s.sid = t.sid;
 ```
 
-**Offerings with course titles**
+**Offerings with course names**
 
 ``` sql
-SELECT o.oid, o.term, c.dept, c.cnum, c.title
+SELECT o.oid, o.term, c.dept, c.cnum, c.name
 FROM university.offering o
 JOIN university.course c
   ON c.dept = o.dept AND c.cnum = o.cnum;
