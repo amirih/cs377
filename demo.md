@@ -1,9 +1,10 @@
 # University Database SQL Examples
 
-Tables: - `course(cnum, name, dept, breadth)` -
-`offering(oid, cnum, dept, term, instructor)` -
-`student(sid, firstname, surname, campus, email, cgpa)` -
-`took(sid, oid, grade)`
+Tables: 
+- `course(cnum, name, dept, breadth)`
+- `offering(oid, cnum, dept, term, instructor)`
+- `student(sid, firstname, surname, campus, email, cgpa)`
+- `took(sid, oid, grade)`
 
 ------------------------------------------------------------------------
 
